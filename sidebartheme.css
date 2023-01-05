@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bigbox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.bigbox input {
+    display: none;
+}
+
+.bigbox label {
+    position: fixed;
+    top: 10px;
+    left: 200px;
+    font-size: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.bigbox ul {
+    position: fixed;
+    top: 0;
+    left: 00px;
+    width: 210px;
+    height: 100vh;
+    background-color: #2b3044;
+    transition: all .5s;
+}
+
+.bigbox ul li {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.bigbox ul li:first-child {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.bigbox ul li:first-child span {
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.bigbox ul li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #d2d2d2;
+
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.bigbox ul li a span {
+    font-size: 14px;
+}
+
+.bigbox ul li a:hover {
+    color: #fff;
+    background-color: rgb(47, 183, 204);
+}
+
+.bigbox input:checked+label {
+    left: 120;
+}
+
+.bigbox input:checked~ul {
+    left: -240px;
+}
