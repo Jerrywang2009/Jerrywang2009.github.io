@@ -1,0 +1,76 @@
+O(n^2) 解法：
+/*
+  Title:  最长公共子序列
+  Source: 模板题
+  Author: WZR
+*/
+#include <bits/stdc++.h>
+#define pb push_back
+#define rep(i, s, t) for(int i=(s); i<=(t); ++i)
+#define F first
+#define S second
+#define pii pair<int, int>
+#define ll long long
+#define all(x) x.begin(), x.end()
+#define debug(x) cout<<#x<<":"<<x<<endl;
+const int N=1005;
+using namespace std;
+
+char a[N], b[N];
+int f[N][N];
+
+signed main()
+{
+	int n, m; scanf("%d %d", &n, &m);
+	scanf("%s\n%s", a+1, b+1);
+	memset(f, 0, sizeof f);
+	rep(i, 1, n)
+		rep(j, 1, m)
+		{
+			f[i][j]=max(f[i-1][j], f[i][j-1]);
+			if(a[i]==b[j]) f[i][j]=max(f[i][j], f[i-1][j-1]+1);
+		}
+	cout<<f[n][m];
+	
+	return 0;
+}
+
+O(n log n) 解法：
+/*
+  Title:  最长公共子序列
+  Source: 模板题
+  Author: WZR
+*/
+#include <bits/stdc++.h>
+#define pb push_back
+#define rep(i, s, t) for(int i=(s); i<=(t); ++i)
+#define F first
+#define S second
+#define pii pair<int, int>
+#define ll long long
+#define all(x) x.begin(), x.end()
+#define debug(x) cout<<#x<<":"<<x<<endl;
+const int N=1e5+10;
+using namespace std;
+
+int a[N], b[N], c[N], k;
+int mp[N];
+
+signed main()
+{
+	int n; scanf("%d", &n);
+	rep(i, 1, n) scanf("%d", a+i);
+	rep(i, 1, n) scanf("%d", b+i);
+	rep(i, 1, n) mp[a[i]]=i;
+	rep(i, 1, n) b[i]=mp[b[i]];
+	c[1]=b[1]; k=1;
+	rep(i, 2, n)
+	{
+		int p=lower_bound(c+1, c+k+1, b[i])-c;
+		if(p>k) c[++k]=b[i];
+		else c[p]=b[i];
+	}
+	printf("%d", k);
+	
+	return 0;
+}
