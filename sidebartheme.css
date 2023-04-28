@@ -1,9 +1,9 @@
 body {
     margin-left: 100px;
     margin-right: 100px;
-  background-image: url(https://cdn.luogu.com.cn/upload/image_hosting/m7pb7dep.png);
+  background-image: url(bgphoto.png);
   background-repeat: no-repeat;
-  background-size: 120%
+  background-size: 100%
 }
 
 * {
